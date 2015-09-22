@@ -65,36 +65,12 @@ with their corresponding bootstrap confidence intervals following Carpenter and 
              selectInput(inputId = "measureVar",
                          label = "Measure Variable",
                          choices=names(dataset)),
-             
-             #fluidRow( 
-             #   
-             # )
-             #actionButton("go", "Compute ROC"),
-             #plotOutput("plotROC")
              tableOutput("tableDataROC")
     ),
     tabPanel("Compute ROC Curve",textOutput("outText"),plotOutput("plotROC"),tableOutput("tableROC")
-             #tabPanel("Compute ROC Curve",
     )
     
     
   )
 )
 )
-
-#   # Sidebar with a slider input for number of bins
-#   sidebarLayout(
-#     sidebarPanel(
-#       sliderInput("bins",
-#                   "Number of bins:",
-#                   min = 1,
-#                   max = 50,
-#                   value = 30)
-#     ),
-# 
-#     # Show a plot of the generated distribution
-#     mainPanel(
-#       plotOutput("distPlot")
-#     )
-#   )
-# ))

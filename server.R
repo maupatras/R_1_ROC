@@ -39,12 +39,6 @@ shinyServer(function(input, output,session) {
       output$summary <- renderPrint(summary(data()) )
       updateSelectInput(session, 'targetVar', choices = names(df))
       updateSelectInput(session, 'measureVar', choices = names(df))
-      
-      #       if (input$targetVar%in%names(df) & input$targetVar%in%names(df) ){
-      #         matData <- df[,c(input$targetVar,input$measureVar)]
-      #         #out1 <- ComputeROC(matData,input$measureVar,input$targetVar,numBootstraps=50)
-      #         output$tableROC <- renderTable(matData) 
-      #      }
     }
   })
   
@@ -71,28 +65,6 @@ shinyServer(function(input, output,session) {
     }
     
   })
-  
-  
-  
-  
 
   output$allData <- DT::renderDataTable(data())
-  
-  #observe({
-  #df <- data()
-  #if (!is.null(df)) {
-  #  data1<-df[,input$attributes]
-  #      updateSelectInput(session, 'attributes', choices = names(df))
-  #observeEvent(input$go,
-  #             {matData <- data()[,c(input$targetVar,input$measureVar)]
-  #             out1 <- ComputeROC(matData,input$measureVar,input$targetVar,numBootstraps=50)
-  #             output$tableROC <- renderTable(out1[[1]])
-  #output$plotROC <- renderPlot(out1[[2]])
-  #             }
-  #)
-  
-  
-  #})
-  
-  
 })
