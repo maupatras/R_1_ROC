@@ -63,8 +63,8 @@ shinyServer(function(input, output,session) {
     } else {
       output$outText <- renderText("Data must be loaded and variables must be selected before computing the ROC curve.")
     }
+    output$allData <- DT::renderDataTable(data())
     
   })
 
-  output$allData <- DT::renderDataTable(data())
 })

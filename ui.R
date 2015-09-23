@@ -19,7 +19,7 @@ shinyUI(fluidPage(
 a measured variable and a target (two-state) variable provided by the user. It also 
 provides the sensitivity and specificity for all the available threshold values together
 with their corresponding bootstrap confidence intervals following Carpenter and Bithell (2000)."),
-      h5("James Carpenter and John Bithell (2000) “Bootstrap condence intervals: when, which, what? 
+      h5("James Carpenter and John Bithell (2000) “Bootstrap confidence intervals: when, which, what? 
          A practical guide for medical statisticians”. Statistics in Medicine 19, 1141–1164."),
       h3("User guide:"),
       h4("You need to follow the steps in the left-side panel in order to conduct the ROC analysis. 
@@ -28,7 +28,12 @@ with their corresponding bootstrap confidence intervals following Carpenter and 
          threshold.",br(),"A summary of all the variables included in the dataset is also available 
          in `Show Summary`. Raw data can be examined in the `Show Data` tab.",br(),"After data has been
          loaded, the target variable and the measured variable must be chosen in `Select Variables` before 
-         the ROC Analysis is conducted in `Compute ROC Curve` tab."))),
+         the ROC Analysis is conducted in `Compute ROC Curve` tab.",br(),"The output consists of the ROC
+         curve for all the possible thresholds (axis: Sensitivity, 1-Specificity) and the corresponding 
+         data in tabular format. In the output table, the sensitivity and specificity values with the
+         respective bootstrap 2.5% and 97.5% confidence intervals for each threshold value are provided 
+         followed by the Positive Predictive value (PPV, Precision) and the Negative Predictive Value 
+         (NPV)."))),
     tabPanel("Load Data",list(h4("The application can accept datafiles in CSV or SPSS (sav) format."),fluidRow(radioButtons('filetype', 'Choose filetype',
                                                c(CSV='csv',
                                                  SPSS='spss'),
