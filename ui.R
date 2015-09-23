@@ -33,7 +33,9 @@ with their corresponding bootstrap confidence intervals following Carpenter and 
          data in tabular format. In the output table, the sensitivity and specificity values with the
          respective bootstrap 2.5% and 97.5% confidence intervals for each threshold value are provided 
          followed by the Positive Predictive value (PPV, Precision) and the Negative Predictive Value 
-         (NPV)."))),
+         (NPV)."),
+      h4(br(),"The current web application has been developed by Sonia Malefaki as a contribution to the 
+         Free and Open Source seminar in R organized by the University of Patras, Greece in May 2015."))),
     tabPanel("Load Data",list(h4("The application can accept datafiles in CSV or SPSS (sav) format."),fluidRow(radioButtons('filetype', 'Choose filetype',
                                                c(CSV='csv',
                                                  SPSS='spss'),
