@@ -11,6 +11,7 @@ library(pROC)
 #suppressMessages(library(pROC))
 library(data.table)
 library(ggplot2)
+library(xtable)
 
 source("ComputeROC.R")
 
@@ -36,7 +37,16 @@ shinyServer(function(input, output,session) {
     df <- data()
     
     if (!is.null(df)) {
-      output$summary <- renderPrint(summary(data()) )
+      #output$summary <- renderPrint(summary(data()) )
+      output$matrix <- renderUI({
+        M <- summary(data())
+        M <- print(xtable(M, align=rep("r", ncol(M)+1)), 
+                   floating=FALSE, tabular.environment="array", comment=FALSE, print.results=FALSE )
+        html <- paste0("$$", M, "$$")
+        list(
+          withMathJax(HTML(html))
+        )
+      })
       updateSelectInput(session, 'targetVar', choices = names(df))
       updateSelectInput(session, 'measureVar', choices = names(df))
     }
@@ -66,5 +76,5 @@ shinyServer(function(input, output,session) {
     output$allData <- DT::renderDataTable(data())
     
   })
-
+  
 })

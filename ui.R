@@ -61,7 +61,7 @@ with their corresponding bootstrap confidence intervals following Carpenter and 
                                     #submitButton("Load Data")
                                   )
     ))),
-    tabPanel("Show Summary",verbatimTextOutput("summary")),
+    tabPanel("Show Summary",uiOutput('matrix')),
     tabPanel("Show data",dataTableOutput("allData")),
     tabPanel("Select Variables",
              selectInput(inputId = "targetVar",
